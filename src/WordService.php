@@ -101,7 +101,7 @@ class WordService
      */
     public function fetch($word, $verb, $prefetchDetails = false)
     {
-        $url = "https://wordsapiv1.p.mashape.com/words/$word";
+        $url = 'https://wordsapiv1.p.mashape.com/words/'.rawurlencode($word);
         $verbIsHidden = array_key_exists($verb, $this->hiddenVerbs) || $prefetchDetails;
         if (!$verbIsHidden) {
             $url .= '/'.$verb;
